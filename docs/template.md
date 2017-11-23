@@ -1,5 +1,6 @@
-### locals
+# Default Template
 
+Locals:
 - header
 - logo
 - title

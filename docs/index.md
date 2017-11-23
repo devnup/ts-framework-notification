@@ -1,14 +1,6 @@
-ts-framework-notification
-=========================
+# ts-framework-notification
 
-[![pipeline status](https://gitlab.devnup.com/npm/ts-framework-notification/badges/master/pipeline.svg)](https://gitlab.devnup.com/npm/ts-framework-notification/commits/master)
-[![coverage report](https://gitlab.devnup.com/npm/ts-framework-notification/badges/master/coverage.svg)](https://gitlab.devnup.com/npm/ts-framework-notification/commits/master)
-
-A minimalistic framework for typescript based applications, with async/await and decorators support.
-
-This plugin extends the Server for handling transactional notifications. 
-
-Currently supporting emails only.
+Install using Yarn or NPM.
 
 ```bash
 # Install using yarn
@@ -22,7 +14,6 @@ Special thanks to the [Cerberus](https://github.com/TedGoas/Cerberus) team, that
 Don't forget to checkout their official website: [http://tedgoas.github.io/Cerberus/](http://tedgoas.github.io/Cerberus/)
 
 <center>![Sample email template](./assets/sample-template.png)</center>
-
 
 ## Getting Started
 
@@ -72,15 +63,10 @@ email.send({
 }).then(response => console.info(response))
 ```
 
-## Documentation
+## Sending with the Default Template
 
-See the [Full documentation](./docs/index.md) in the repository.
+See the [Templates documentation](./template.md).
 
-## Roadmap
+## Sending with a Custom Template
 
-- Push notifications (Firebase for iOS and Android)
-- SMS notifications (Twilio)
-
-## License
-
-The project is licensed under the [MIT License](./LICENSE.md).
+// TODO

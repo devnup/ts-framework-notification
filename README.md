@@ -52,7 +52,10 @@ import { Email } from 'ts-framework-notification';
 
 const email = new Email({
   from: process.env.SMTP_FROM,
-  connectionUrl: process.env.SMTP_URL
+  connectionUrl: process.env.SMTP_URL,
+  template: {
+    enabled: true
+  }
 });
 
 // Send an E-mail using the default template (Cerberus)

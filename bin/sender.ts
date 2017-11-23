@@ -26,18 +26,14 @@ email.send({
       url: 'https://google.com'
     },
     footer: 'This is a footer',
-    web: {
-      label: 'View as a Web Page',
-      url: 'https://google.com',
-    },
-    unsubscribe: {
-      label: 'unsubscribe',
-      url: 'https://google.com',
-    },
     company: {
       name: 'Devnup Ltd.',
       address: 'Campinas, Brazil',
       tel: '(123) 456-7890',
+    },
+    unsubscribe: {
+      label: 'Unsubscribe',
+      url: 'https://google.com',
     },
   },
 }).then(response => {

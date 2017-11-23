@@ -18,6 +18,3 @@
 - unsubscribe 
   - label (Unsubscribe)
   - url
-- web
-  - label (View as a Web Page)
-  - url

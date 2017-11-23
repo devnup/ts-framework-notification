@@ -7,9 +7,8 @@ const email = new Email({
 });
 
 email.send({
-  to: 'luis@devnup.com',
+  to: 'hello@company.com',
   subject: 'test',
-  text: 'test',
   locals: {
     title: 'Simple sender test',
     logo: 'https://i.imgur.com/5UMVOBG.jpg',
@@ -30,6 +29,7 @@ email.send({
       name: 'Devnup Ltd.',
       address: 'Campinas, Brazil',
       tel: '(123) 456-7890',
+      url: 'https://devnup.com',
     },
     unsubscribe: {
       label: 'Unsubscribe',

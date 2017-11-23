@@ -1,8 +1,8 @@
 ts-framework-notification
 =========================
 
-[![pipeline status](https://gitlab.devnup.com/npm/ts-framework-versioning/badges/master/pipeline.svg)](https://gitlab.devnup.com/npm/ts-framework-versioning/commits/master)
-[![coverage report](https://gitlab.devnup.com/npm/ts-framework-versioning/badges/master/coverage.svg)](https://gitlab.devnup.com/npm/ts-framework-versioning/commits/master)
+[![pipeline status](https://gitlab.devnup.com/npm/ts-framework-notification/badges/master/pipeline.svg)](https://gitlab.devnup.com/npm/ts-framework-notification/commits/master)
+[![coverage report](https://gitlab.devnup.com/npm/ts-framework-notification/badges/master/coverage.svg)](https://gitlab.devnup.com/npm/ts-framework-notification/commits/master)
 
 A minimalistic framework for typescript based applications, with async/await and decorators support.
 

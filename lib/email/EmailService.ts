@@ -83,7 +83,7 @@ export default class EmailService extends BaseNotificationService {
     this.options.template = { defaultTemplate: 'cerberus', ...this.options.template };
 
     // If transporter is available, prepare the template engine
-    if (this.transporter && this.options.template.enabled !== false) {
+    if (this.transporter && this.options.template.enabled) {
 
       // Instantiate the template engine renderer for sending cool emails
       this.templateEngine = new Template({

@@ -1,0 +1,41 @@
+{
+  "name": "ts-framework-notification",
+  "version": "1.0.0",
+  "description": "A minimalistic web framework for TS",
+  "author": "Luis Brito <luis@devnup.com>",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "typings": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.devnup.com/npm/ts-framework-notification.git"
+  },
+  "scripts": {
+    "build": "npm run -s clean && ./node_modules/.bin/tsc",
+    "clean": "./node_modules/.bin/rimraf ./dist/",
+    "test": "./node_modules/.bin/jest --config jest.json",
+    "precommit": "npm test"
+  },
+  "dependencies": {
+    "@types/email-templates": "^3.1.0",
+    "@types/nodemailer": "^4.3.1",
+    "ejs": "^2.5.7",
+    "email-templates": "^3.1.7",
+    "nodemailer": "^4.4.0",
+    "rimraf": "^2.6.2",
+    "ts-framework": "git+https://gitlab.devnup.com/npm/ts-framework.git#dev"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.2",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1",
+    "ts-jest": "^21.2.3",
+    "ts-lint": "^4.5.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3"
+  }
+}

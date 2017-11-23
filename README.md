@@ -21,6 +21,8 @@ npm install --save git:https://gitlab.devnup.com/npm/ts-framework-notification.g
 Special thanks to the [Cerberus](https://github.com/TedGoas/Cerberus) team, that developed a great E-mail template, used as the default template.
 Don't forget to checkout their official website: [http://tedgoas.github.io/Cerberus/](http://tedgoas.github.io/Cerberus/)
 
+![Sample email template](./assets/sample-template.png)
+
 ## Getting Started
 
 ```typescript

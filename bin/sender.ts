@@ -7,7 +7,7 @@ const email = new Email({
 });
 
 email.send({
-  to: 'luis@devnup.com',
+  to: process.env.EMAIL_TO || 'hello@devnup.com',
   subject: 'test',
   locals: {
     title: 'Simple sender test',

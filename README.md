@@ -21,13 +21,34 @@ npm install --save git:https://gitlab.devnup.com/npm/ts-framework-notification.g
 Special thanks to the [Cerberus](https://github.com/TedGoas/Cerberus) team, that developed a great E-mail template, used as the default template.
 Don't forget to checkout their official website: [http://tedgoas.github.io/Cerberus/](http://tedgoas.github.io/Cerberus/)
 
-![Sample email template](./assets/sample-template.png)
+<center>![Sample email template](./assets/sample-template.png)</center>
+
 
 ## Getting Started
 
+Sending a simple `html` or `plain text` message:
+
 ```typescript
-import { Logger } from 'ts-framework';
-import { Email } from '../lib';
+import { Email } from 'ts-framework-notification';
+
+const email = new Email({
+  from: process.env.SMTP_FROM,
+  connectionUrl: process.env.SMTP_URL
+});
+
+// Send a simple E-mail message
+email.send({
+  to: 'hello@company.com',
+  subject: 'Welcome aboard!',
+  text: 'Thank you for creating a new account! https://google.com',
+  html: 'Thank you for creating a new account! <a href="https://google.com>Click here to login</a>'
+}).then(response => console.info(response))
+```
+
+Sending a simple email message using the default template (Cerberus):
+
+```typescript
+import { Email } from 'ts-framework-notification';
 
 const email = new Email({
   from: process.env.SMTP_FROM,
@@ -48,13 +69,7 @@ email.send({
     },
     footer: 'This is a footer',
   },
-}).then(response => {
-  Logger.debug(response);
-  process.exit(0);
-}).catch(error => {
-  Logger.error(error)
-  process.exit(1);
-});
+}).then(response => console.info(response))
 ```
 
 ## Documentation

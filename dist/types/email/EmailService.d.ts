@@ -44,19 +44,12 @@ export default class EmailService extends BaseNotificationService {
     protected readonly options: EmailServiceOptions;
     protected readonly transporter?: nodemailer.Transporter;
     protected readonly templateEngine?: Template;
-    protected static instance: EmailService;
     /**
      * Instantiates a new email service instance.
      *
      * @param options The email service options
      */
     constructor(options: EmailServiceOptions);
-    /**
-     * Gets the singleton email service.
-     *
-     * @param connectionUrl The email connection url
-     */
-    static getInstance(options?: EmailServiceOptions): EmailService;
     /**
      * Verifies if the SMTP connection is OK.
      */

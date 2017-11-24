@@ -52,7 +52,6 @@ export interface EmailServiceOptions extends BaseNotificationServiceOptions {
 export default class EmailService extends BaseNotificationService {
   protected readonly transporter?: nodemailer.Transporter;
   protected readonly templateEngine?: Template;
-  protected static instance: EmailService;
 
   /**
    * Instantiates a new email service instance.
@@ -97,18 +96,6 @@ export default class EmailService extends BaseNotificationService {
         }
       });
     }
-  }
-
-  /**
-   * Gets the singleton email service.
-   * 
-   * @param connectionUrl The email connection url
-   */
-  public static getInstance(options?: EmailServiceOptions): EmailService {
-    if (!EmailService.instance) {
-      EmailService.instance = new EmailService(options);
-    }
-    return EmailService.instance;
   }
 
   /**

@@ -1,4 +1,6 @@
 import Email, { EmailMessage, EmailServiceOptions } from './email/EmailService';
-
 export { Email, EmailMessage, EmailServiceOptions };
-export default { Email };
+declare const _default: {
+    Email: typeof Email;
+};
+export default _default;

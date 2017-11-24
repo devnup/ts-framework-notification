@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class BaseService {
+    /**
+     * Instantiates a new base service
+     *
+     * @param name The service name for verbose logging
+     * @param options The service options
+     */
+    constructor(name, options) {
+        this.name = name;
+        this.options = options;
+    }
+}
+exports.default = BaseService;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQmFzZVNlcnZpY2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9saWIvYmFzZS9CYXNlU2VydmljZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQU9BO0lBVUU7Ozs7O09BS0c7SUFDSCxZQUFZLElBQVksRUFBRSxPQUEyQjtRQUNuRCxJQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztRQUNqQixJQUFJLENBQUMsT0FBTyxHQUFHLE9BQU8sQ0FBQztJQUN6QixDQUFDO0NBQ0Y7QUFwQkQsOEJBb0JDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGludGVyZmFjZSBCYXNlU2VydmljZU9wdGlvbnMge1xuICAvKipcbiAgICogRW5hYmxlcyBmdWxsIGxvZ2dpbmcgZm9yIHNlcnZpY2UgaW5pdGlhbGl6YXRpb24gYW5kIGVycm9yIGhhbmRsaW5nLlxuICAgKi9cbiAgdmVyYm9zZT86IGJvb2xlYW47XG59XG5cbmV4cG9ydCBkZWZhdWx0IGFic3RyYWN0IGNsYXNzIEJhc2VTZXJ2aWNlIHtcbiAgLyoqXG4gICAqIFRoZSBzZXJ2aWNlIG5hbWUgZm9yIHZlcmJvc2UgbG9nZ2luZy5cbiAgICovXG4gIHB1YmxpYyByZWFkb25seSBuYW1lOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBUaGUgc2VydmljZSBvcHRpb25zLlxuICAgKi9cbiAgcHJvdGVjdGVkIHJlYWRvbmx5IG9wdGlvbnM6IEJhc2VTZXJ2aWNlT3B0aW9ucztcblxuICAvKipcbiAgICogSW5zdGFudGlhdGVzIGEgbmV3IGJhc2Ugc2VydmljZVxuICAgKiBcbiAgICogQHBhcmFtIG5hbWUgVGhlIHNlcnZpY2UgbmFtZSBmb3IgdmVyYm9zZSBsb2dnaW5nXG4gICAqIEBwYXJhbSBvcHRpb25zIFRoZSBzZXJ2aWNlIG9wdGlvbnNcbiAgICovXG4gIGNvbnN0cnVjdG9yKG5hbWU6IHN0cmluZywgb3B0aW9uczogQmFzZVNlcnZpY2VPcHRpb25zKSB7XG4gICAgdGhpcy5uYW1lID0gbmFtZTtcbiAgICB0aGlzLm9wdGlvbnMgPSBvcHRpb25zO1xuICB9XG59Il19

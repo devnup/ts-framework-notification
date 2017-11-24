@@ -1,0 +1,22 @@
+import BaseService, { BaseServiceOptions } from "./BaseService";
+export interface BaseNotificationServiceOptions extends BaseServiceOptions {
+}
+export default abstract class BaseNotificationService extends BaseService {
+    /**
+     * The notification service options.
+     */
+    protected readonly options: BaseNotificationServiceOptions;
+    /**
+     * Instantiates a new Notification service.
+     *
+     * @param name The service name for verbose logging
+     * @param options The notification service options
+     */
+    constructor(name: string, options: BaseNotificationServiceOptions);
+    /**
+     * Sends a new message through the notification service.
+     *
+     * @param data The data to be sent through the notification service
+     */
+    abstract send(data: any): any;
+}

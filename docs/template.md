@@ -59,9 +59,8 @@ The currently available locals for this template are:
   - `body`: The section body
 
 - `company`: The company information to be placed in the footer, optional.
-  - `name`: The company name.
-  - `address`: The company address.
-  - `tel`: The company telephone number.
+  - `title`: The company title.
+  - `subtitle`: The company subtitle.
 
 - `unsubscribe`: Optional.
   - `label`: Override the unsubscribe label, defaults to: "Unsubscribe".

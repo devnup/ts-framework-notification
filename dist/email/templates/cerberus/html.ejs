@@ -191,9 +191,11 @@
   <center style="width: 100%; background: #222222; text-align: left;">
 
     <!-- Visually Hidden Preheader Text : BEGIN -->
-    <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      <%= preview %>
-    </div>
+    <% if(locals.preview) { %>
+      <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
+        <%- locals.preview %>
+      </div>
+    <% } %>
     <!-- Visually Hidden Preheader Text : END -->
 
     <!--
@@ -213,7 +215,7 @@
         <tr>
           <td style="padding: 20px 0; text-align: center">
             <% if(locals.header) { %>
-              <img src="<%= locals.header %>>" width="200" height="50" alt="alt_text" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555;">
+              <img src="<%- locals.header %>>" width="200" height="50" alt="alt_text" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555;">
             <% } else { %>
               &nbsp;
             <% } %>
@@ -229,7 +231,7 @@
         <tr>
           <td bgcolor="#ffffff" align="center">
             <% if(locals.logo) { %>
-            <img src="<%= locals.logo %>" width="600" height="" alt="" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555; margin: auto;"
+            <img src="<%- locals.logo %>" width="600" height="" alt="" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555; margin: auto;"
               class="g-img">
             <% } else { %>
               &nbsp;
@@ -245,9 +247,9 @@
               <tr>
                 <td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555;">
                   <h1 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 24px; line-height: 125%; color: #333333; font-weight: normal;">
-                    <%= title %>
+                    <%- title %>
                   </h1>
-                  <p style="margin: 0;"><%= body %></p>
+                  <p style="margin: 0;"><%- body %></p>
                 </td>
               </tr>
               <% if(locals.button) { %>
@@ -257,9 +259,9 @@
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto;">
                       <tr>
                         <td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td">
-                          <a href="<%= locals.button.url %>" style="background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 110%; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;"
+                          <a href="<%- locals.button.url %>" style="background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 110%; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;"
                             class="button-a">
-                            <span style="color:#ffffff;" class="button-link">&nbsp;&nbsp;&nbsp;&nbsp;<%= locals.button.label %>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span style="color:#ffffff;" class="button-link">&nbsp;&nbsp;&nbsp;&nbsp;<%- locals.button.label %>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                           </a>
                         </td>
                       </tr>
@@ -271,8 +273,8 @@
               <% if(locals.section) { %>
                 <tr>
                   <td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555;">
-                    <h2 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 18px; line-height: 125%; color: #333333; font-weight: bold;"><%= locals.section.title %></h2>
-                    <p style="margin: 0;"><%= locals.section.body %></p>
+                    <h2 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 18px; line-height: 125%; color: #333333; font-weight: bold;"><%- locals.section.title %></h2>
+                    <p style="margin: 0;"><%- locals.section.body %></p>
                   </td>
                 </tr>
               <% } else { %>
@@ -302,7 +304,7 @@
               <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                 <tr>
                   <td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555;">
-                    <p style="margin: 0;"><%= locals.footer %></p>
+                    <p style="margin: 0;"><%- locals.footer %></p>
                   </td>
                 </tr>
               </table>
@@ -319,21 +321,23 @@
         <tr>
           <td style="padding: 40px 10px; width: 100%; font-family: sans-serif; font-size: 12px; line-height: 140%; text-align: center; color: #888888;"
             class="x-gmail-data-detectors">
-            <br/>
-            <%= company.name %>
-            <br/>
-            <%= company.address %>
-            <br/>
-            <%= company.tel %>
+             <% if(locals.company) { %>
               <br/>
+              <%- locals.company.title %>
               <br/>
-              <% if(locals.unsubscribe) { %>
-                <a href="<%= locals.unsubscribe.url %>">
-                  <unsubscribe style="color: #888888; text-decoration: underline;">
-                    <%= getValue(locals.unsubscribe.label, 'Unsubscribe') %>
-                  </unsubscribe>
-                </a>
-              <% } %>
+              <%- locals.company.subtitle %>
+            <% } else { %>
+              &nbsp;
+            <% } %>
+            <br/>
+            <br/>
+            <% if(locals.unsubscribe) { %>
+              <a href="<%- locals.unsubscribe.url %>">
+                <unsubscribe style="color: #888888; text-decoration: underline;">
+                  <%- getValue(locals.unsubscribe.label, 'Unsubscribe') %>
+                </unsubscribe>
+              </a>
+            <% } %>
           </td>
         </tr>
       </table>

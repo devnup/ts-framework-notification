@@ -12,10 +12,10 @@ Currently supporting emails only.
 
 ```bash
 # Install using yarn
-yarn add git:https://gitlab.devnup.com/npm/ts-framework-notification.git#master
+yarn add git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
 
 # Install using NPM
-npm install --save git:https://gitlab.devnup.com/npm/ts-framework-notification.git#master
+npm install --save git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
 ```
 
 Special thanks to the [Cerberus](https://github.com/TedGoas/Cerberus) team, that developed a great E-mail template, used as the default template.

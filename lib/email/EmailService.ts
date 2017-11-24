@@ -139,7 +139,7 @@ export default class EmailService extends BaseNotificationService {
     if (isReady && this.templateEngine) {
       // Send email using the current template engine
       return this.templateEngine.send({
-        message: { from: this.options.from, ...options },
+        message: options,
         locals: {
           getValue: (value, defaultValue) => value || defaultValue,
           ...options.locals

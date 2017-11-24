@@ -14,14 +14,16 @@
     "url": "https://gitlab.devnup.com/npm/ts-framework-notification.git"
   },
   "scripts": {
-    "build": "npm run -s clean && ./node_modules/.bin/tsc",
+    "build": "npm run -s clean && ./node_modules/.bin/tsc && npm run -s assets",
     "clean": "./node_modules/.bin/rimraf ./dist/",
+    "assets": "./node_modules/.bin/cpx \"lib/**/*.{html,ejs,css,png,jpg,jpeg}\" dist",
     "test": "./node_modules/.bin/jest --config jest.json",
     "precommit": "npm test"
   },
   "dependencies": {
     "@types/email-templates": "^3.1.0",
     "@types/nodemailer": "^4.3.1",
+    "cpx": "^1.5.0",
     "ejs": "^2.5.7",
     "email-templates": "^3.1.7",
     "nodemailer": "^4.4.0",

@@ -1,7 +1,5 @@
 import * as hat from 'hat';
-import * as sinon from 'sinon';
 import { Firebase, FirebaseMessage } from "../../lib";
-import MockTransport from "../util/MockTransport";
 
 describe('lib.services.FirebaseService', () => {
 

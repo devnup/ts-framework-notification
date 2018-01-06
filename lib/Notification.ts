@@ -1,9 +1,7 @@
-import { NotificationOptions } from './Notification';
 import { TransportTypes } from './types';
-import { Firebase, FirebaseMessageSchema } from './firebase';
-import { Email, EmailMessage, EmailMessageSchema } from './email';
 import { BaseNotificationService, BaseNotificationServiceOptions } from "./base";
-import { FirebaseServiceOptions, EmailServiceOptions } from 'index';
+import { Email, EmailMessage, EmailMessageSchema, EmailServiceOptions } from './email';
+import { Firebase, FirebaseMessage, FirebaseMessageSchema, FirebaseServiceOptions } from './firebase';
 
 export interface NotificationOptions extends BaseNotificationServiceOptions {
   firebase?: FirebaseServiceOptions
@@ -16,6 +14,9 @@ export default class Notification extends BaseNotificationService {
     email?: Email
     firebase?: Firebase
   }
+
+  static EmailMessage = EmailMessage;
+  static FirebaseMessage = FirebaseMessage;
 
   constructor(options: NotificationOptions) {
     super('NotificationService', options);
@@ -43,11 +44,11 @@ export default class Notification extends BaseNotificationService {
    * @param message The notification to be sent, can be a Email message or a Firebase message.
    * @param options The options to be sent to the Transporter
    */
-  public async send(message: EmailMessageSchema | FirebaseMessageSchema, options?: any) {
-    if (message._type === TransportTypes.EMAIL && this.transports.email) {
-      return this.transports.email.send(message as EmailMessageSchema);
-    } else if (message._type === TransportTypes.FIREBASE && this.transports.firebase) {
-      return this.transports.firebase.send(message as FirebaseMessageSchema, options);
+  public async send(message: EmailMessage | FirebaseMessage, options?: any) {
+    if (this.transports.email && message instanceof EmailMessage) {
+      return this.transports.email.send(message);
+    } else if (this.transports.firebase && message instanceof FirebaseMessage) {
+      return this.transports.firebase.send(message, options);
     } else {
       throw new Error(`${this.name}: Transport not available or misconfigured: "${message._type}"`);
     }

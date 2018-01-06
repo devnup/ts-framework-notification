@@ -6,7 +6,6 @@ build:
   image: node:8
   type: build
   script:
-  - npm install -g yarn
   - yarn install
   artifacts:
     expire_in: 1d

@@ -21,8 +21,6 @@
     "precommit": "npm test"
   },
   "dependencies": {
-    "@types/email-templates": "^3.1.0",
-    "@types/nodemailer": "^4.3.1",
     "cpx": "^1.5.0",
     "ejs": "^2.5.7",
     "email-templates": "^3.1.7",
@@ -32,7 +30,9 @@
     "ts-framework": "git+https://gitlab.devnup.com/npm/ts-framework.git#dev"
   },
   "devDependencies": {
+    "@types/email-templates": "^3.1.0",
     "@types/jest": "^21.1.2",
+    "@types/nodemailer": "^4.3.1",
     "hat": "^0.0.3",
     "husky": "^0.14.3",
     "jest": "^21.2.1",

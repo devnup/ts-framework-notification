@@ -47,9 +47,7 @@ const response = await email.send({
 console.log(response);
 ```
 
-Sending a simple email message using the default template. Special thanks to the [Cerberus](http://tedgoas.github.io/Cerberus) team, that developed a great e-mail template, used here as the default template.
-
-<center>![Sample email template](./assets/sample-template.png)</center>
+Sending a simple email message using the default template. 
 
 ```typescript
 import { Email } from 'ts-framework-notification';
@@ -80,6 +78,12 @@ const response = await email.send({
 
 console.log(response);
 ```
+
+Special thanks to the [Cerberus](http://tedgoas.github.io/Cerberus) team, that developed a great e-mail template, used here as the default template.
+
+<center>![Sample email template](./assets/sample-template.png)</center>
+
+<p><br /></p>
 
 ### Firebase transport
 

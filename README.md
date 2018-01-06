@@ -6,9 +6,8 @@ ts-framework-notification
 
 A minimalistic framework for typescript based applications, with async/await and decorators support.
 
-This plugin extends the Server for handling transactional notifications. 
+This plugin extends the Server for handling transactional notifications through multiple transports. 
 
-Currently supporting emails only.
 
 ```bash
 # Install using yarn
@@ -17,8 +16,6 @@ yarn add git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
 # Install using NPM
 npm install --save git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
 ```
-
-<center>![Sample email template](./assets/sample-template.png)</center>
 
 ## Getting Started
 
@@ -31,6 +28,8 @@ The Notification module comes with built-in support for the following transports
 
 Special thanks to the [Cerberus](https://github.com/TedGoas/Cerberus) team, that developed a great e-mail template, used here as the default template.
 Don't forget to checkout their official website: [http://tedgoas.github.io/Cerberus/](http://tedgoas.github.io/Cerberus/)
+
+<center>![Sample email template](./assets/sample-template.png)</center>
 
 Sending a simple `html` or `plain text` message:
 

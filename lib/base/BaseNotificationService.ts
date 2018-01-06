@@ -1,4 +1,5 @@
 import { TransportTypes } from './../types';
+import { BaseMessageSchema } from './BaseMessage';
 import BaseService, { BaseServiceOptions } from "./BaseService";
 
 export interface BaseNotificationServiceOptions extends BaseServiceOptions {
@@ -25,5 +26,5 @@ export default abstract class BaseNotificationService extends BaseService {
    * 
    * @param data The data to be sent through the notification service
    */
-  public abstract send(data: any);
+  public abstract send(data: BaseMessageSchema);
 }

@@ -1,4 +1,4 @@
-import Email, { EmailMessage, EmailServiceOptions } from './email/EmailService';
+import { Email, EmailServiceOptions, EmailMessage } from './email';
 
 export { Email, EmailMessage, EmailServiceOptions };
 export default { Email };

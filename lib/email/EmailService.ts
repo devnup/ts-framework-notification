@@ -3,19 +3,8 @@ import { Logger } from 'ts-framework';
 import * as nodemailer from 'nodemailer';
 import * as Template from 'email-templates';
 import { TransportTypes } from '../types';
+import EmailMessage, { EmailMessageSchema } from './EmailMessage';
 import BaseNotificationService, { BaseNotificationServiceOptions } from '../base/BaseNotificationService';
-
-export interface EmailMessage {
-  from?: string;
-  to: string | string[];
-  subject: string;
-  text?: string;
-  html?: string;
-  cc?: string | string[];
-  bcc?: string | string[];
-  locals?: any;
-  template?: string;
-}
 
 export interface EmailServiceOptions extends BaseNotificationServiceOptions {
   /**
@@ -120,7 +109,8 @@ export default class EmailService extends BaseNotificationService {
    * 
    * @param options The message options
    */
-  public async send(options: EmailMessage) {
+  public async send(options: EmailMessageSchema) {
+    options = options instanceof EmailMessage ? options : new EmailMessage(options);
     const isReady = await this.isReady();
 
     if (isReady && this.templateEngine) {

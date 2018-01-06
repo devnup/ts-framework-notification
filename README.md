@@ -26,11 +26,6 @@ The Notification module comes with built-in support for the following transports
 
 ### Email transport
 
-Special thanks to the [Cerberus](https://github.com/TedGoas/Cerberus) team, that developed a great e-mail template, used here as the default template.
-Don't forget to checkout their official website: [http://tedgoas.github.io/Cerberus/](http://tedgoas.github.io/Cerberus/)
-
-<center>![Sample email template](./assets/sample-template.png)</center>
-
 Sending a simple `html` or `plain text` message:
 
 ```typescript
@@ -52,7 +47,9 @@ const response = await email.send({
 console.log(response);
 ```
 
-Sending a simple email message using the default template (Cerberus):
+Sending a simple email message using the default template. Special thanks to the [Cerberus](http://tedgoas.github.io/Cerberus) team, that developed a great e-mail template, used here as the default template.
+
+<center>![Sample email template](./assets/sample-template.png)</center>
 
 ```typescript
 import { Email } from 'ts-framework-notification';
@@ -102,8 +99,8 @@ const response = await firebase.send({
   title: 'Hello World!',
   body: 'This is a simple notification message.',
   sound: '< the sound name >',
-  sound: '< the sound name >', // iOS only
   color: '< the color hex >', // Android only
+  badge: '< the count for the badge >', // iOS only
   // More options in the TS typings...
 });
 

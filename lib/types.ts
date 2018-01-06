@@ -1,4 +1,4 @@
 export enum TransportTypes {
-  EMAIL,
-  EMAIL_TEMPLATE
+  EMAIL = 'email',
+  FIREBASE = 'firebase'
 }

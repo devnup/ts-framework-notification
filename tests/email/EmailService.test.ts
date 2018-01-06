@@ -1,7 +1,13 @@
-import { Email } from "../lib";
-import MockTransport from "./util/MockTransport";
+import { Email, EmailMessage } from "../../lib";
+import MockTransport from "../util/MockTransport";
 
 describe('lib.services.Email', () => {
+
+  it('should instantiate a simple firebase message', async () => {
+    const message = new EmailMessage({ to: 'test@test.com', subject: 'Unit test', text: 'Unit test' });
+    expect(message).toHaveProperty('to', 'test@test.com');
+    expect(message).toHaveProperty('text', 'Unit test');
+  });
 
   it('should crash without a valid configuration', async () => {
     expect(() => new Email({ from: 'test@devnup.com' })).toThrowError(/connectionUrl/);

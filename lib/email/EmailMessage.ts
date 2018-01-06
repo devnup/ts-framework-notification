@@ -1,4 +1,5 @@
-import BaseMessage, { BaseMessageSchema } from "../base/BaseMessage";
+import { TransportTypes } from './../types';
+import { BaseMessage, BaseMessageSchema } from "../base";
 
 export interface EmailMessageSchema extends BaseMessageSchema {
   from?: string;
@@ -25,17 +26,15 @@ export default class EmailMessage extends BaseMessage implements EmailMessageSch
   locals?: any;
   template?: string;
 
-  static TYPE_EMAIL = 'email';
-
-  constructor(data: any) {
-    super({ ...data, type: EmailMessage.TYPE_EMAIL });
+  constructor(data: EmailMessageSchema) {
+    super({ ...data, type: TransportTypes.EMAIL });
     this.from = data.from;
     this.to = data.to;
     this.subject = data.subject;
     this.text = data.text;
     this.html = data.html;
     this.cc = data.cc;
-    this.bcc = data.bdd;
+    this.bcc = data.bcc;
     this.locals = data.locals;
     this.template = data.template;
   }

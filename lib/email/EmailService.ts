@@ -3,8 +3,8 @@ import { Logger } from 'ts-framework';
 import * as nodemailer from 'nodemailer';
 import * as Template from 'email-templates';
 import { TransportTypes } from '../types';
+import { BaseNotificationService, BaseNotificationServiceOptions } from '../base';
 import EmailMessage, { EmailMessageSchema } from './EmailMessage';
-import BaseNotificationService, { BaseNotificationServiceOptions } from '../base/BaseNotificationService';
 
 export interface EmailServiceOptions extends BaseNotificationServiceOptions {
   /**
@@ -57,7 +57,7 @@ export default class EmailService extends BaseNotificationService {
       this.transporter = nodemailer.createTransport(options.connectionUrl);
     } else {
       // No transporter available, prepare message for warning or crash
-      const message = 'EmailService: The SMTP connectionUrl is not available.';
+      const message = `${this.name}: The SMTP connectionUrl is not available.`;
 
       if (!options.debug) {
         // No debug mode, crash the service
@@ -107,34 +107,34 @@ export default class EmailService extends BaseNotificationService {
   /**
    * Sends an email message.
    * 
-   * @param options The message options
+   * @param message The message options
    */
-  public async send(options: EmailMessageSchema) {
-    options = options instanceof EmailMessage ? options : new EmailMessage(options);
+  public async send(message: EmailMessageSchema) {
+    const data = message = message instanceof EmailMessage ? message : new EmailMessage(message);
     const isReady = await this.isReady();
 
     if (isReady && this.templateEngine) {
       // Send email using the current template engine
       return this.templateEngine.send({
-        message: options,
+        message: data,
         locals: {
           getValue: (value, defaultValue) => value || defaultValue,
-          ...options.locals
+          ...data.locals
         },
-        template: options.template || this.options.template.defaultTemplate,
+        template: data.template || this.options.template.defaultTemplate,
       })
     } else if (isReady) {
       // Send simple email using the transporter
-      return this.transporter.sendMail(options);
+      return this.transporter.sendMail(data);
     } else {
-      const message = 'EmailService is not ready, the SMTP connectionUrl may be invalid or unavailable';
+      const errorMessage = `${this.name} is not ready, the SMTP connectionUrl may be invalid or unavailable`;
 
       if (this.options.debug) {
         // Logs the email body in the console as a warning
-        Logger.warn(message, { body: JSON.stringify(options, null, 2) });
+        Logger.warn(errorMessage, { body: JSON.stringify(data, null, 2) });
       } else {
         // Crash the service, email could not be sent
-        throw new Error(message);
+        throw new Error(errorMessage);
       }
     }
   }

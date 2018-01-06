@@ -25,6 +25,7 @@ export default abstract class BaseNotificationService extends BaseService {
    * Sends a new message through the notification service.
    * 
    * @param data The data to be sent through the notification service
+   * @param options The options to be used in the transport
    */
-  public abstract send(data: BaseMessageSchema);
+  public abstract send(message: BaseMessageSchema, options?: any);
 }

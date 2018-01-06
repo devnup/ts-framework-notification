@@ -7,14 +7,14 @@ export interface FirebaseMessageSchema extends BaseMessageSchema {
   registrationToken: string;
 
   // Multi-platform attributes
-  sound?: string
-  title?: string
-  titleLocArgs?: string
-  titleLocKey?: string
-  body?: string
-  bodyLocArgs?: string
-  bodyLocKey?: string
-  clickAction?: string
+  body?: string;
+  sound?: string;
+  title?: string;
+  bodyLocKey?: string;
+  bodyLocArgs?: string;
+  clickAction?: string;
+  titleLocKey?: string;
+  titleLocArgs?: string;
 
   // Android specific attributes
   tag?: string
@@ -23,6 +23,9 @@ export interface FirebaseMessageSchema extends BaseMessageSchema {
 
   // iOS specific attributes
   badge?: string
+
+  // Other attributes
+  [key: string]: string | undefined;
 }
 
 /**
@@ -34,14 +37,14 @@ export default class FirebaseMessage extends BaseMessage implements FirebaseMess
   registrationToken: string;
 
   // Multi-platform attributes
-  sound?: string
-  title?: string
-  titleLocArgs?: string
-  titleLocKey?: string
-  body?: string
-  bodyLocArgs?: string
-  bodyLocKey?: string
-  clickAction?: string
+  body?: string;
+  sound?: string;
+  title?: string;
+  bodyLocKey?: string;
+  bodyLocArgs?: string;
+  clickAction?: string;
+  titleLocKey?: string;
+  titleLocArgs?: string;
 
   // Android specific attributes
   tag?: string
@@ -51,11 +54,14 @@ export default class FirebaseMessage extends BaseMessage implements FirebaseMess
   // iOS specific attributes
   badge?: string
 
+  // Other attributes
+  [key: string]: string | undefined;
+
   constructor(data: FirebaseMessageSchema) {
     super({ ...data, type: TransportTypes.FIREBASE });
-
     this.registrationToken = data.registrationToken;
 
+    // Multi-platform attributes
     this.sound = data.sound;
     this.title = data.title;
     this.titleLocArgs = data.titleLocArgs;
@@ -65,10 +71,19 @@ export default class FirebaseMessage extends BaseMessage implements FirebaseMess
     this.bodyLocKey = data.bodyLocKey;
     this.clickAction = data.clickAction;
 
+    // Android specific attributes
     this.tag = data.tag;
     this.color = data.color;
     this.icon = data.icon;
 
+    // iOS specific attributes
     this.badge = data.badge;
+
+    // Put additional values in payload
+    for (let k in data) {
+      if (data.hasOwnProperty(k) && this[k] === undefined) {
+        this[k] = data[k];
+      }
+    }
   }
 }

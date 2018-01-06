@@ -107,31 +107,31 @@ export default class EmailService extends BaseNotificationService {
   /**
    * Sends an email message.
    * 
-   * @param options The message options
+   * @param message The message options
    */
-  public async send(options: EmailMessageSchema) {
-    options = options instanceof EmailMessage ? options : new EmailMessage(options);
+  public async send(message: EmailMessageSchema) {
+    message = message instanceof EmailMessage ? message : new EmailMessage(message);
     const isReady = await this.isReady();
 
     if (isReady && this.templateEngine) {
       // Send email using the current template engine
       return this.templateEngine.send({
-        message: options,
+        message: message,
         locals: {
           getValue: (value, defaultValue) => value || defaultValue,
-          ...options.locals
+          ...message.locals
         },
-        template: options.template || this.options.template.defaultTemplate,
+        template: message.template || this.options.template.defaultTemplate,
       })
     } else if (isReady) {
       // Send simple email using the transporter
-      return this.transporter.sendMail(options);
+      return this.transporter.sendMail(message);
     } else {
       const message = 'EmailService is not ready, the SMTP connectionUrl may be invalid or unavailable';
 
       if (this.options.debug) {
         // Logs the email body in the console as a warning
-        Logger.warn(message, { body: JSON.stringify(options, null, 2) });
+        Logger.warn(message, { body: JSON.stringify(message, null, 2) });
       } else {
         // Crash the service, email could not be sent
         throw new Error(message);

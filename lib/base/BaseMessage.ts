@@ -1,8 +1,8 @@
 import * as uuid from 'uuid';
 
 export interface BaseMessageSchema {
-  _id: string;
-  _type: string;
+  _id?: string;
+  _type?: string;
 }
 
 export default abstract class BaseMessage {

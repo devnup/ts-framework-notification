@@ -1,5 +1,5 @@
 import { TransportTypes } from './../types';
-import BaseMessage, { BaseMessageSchema } from "../base/BaseMessage";
+import { BaseMessage, BaseMessageSchema } from "../base";
 
 export interface EmailMessageSchema extends BaseMessageSchema {
   from?: string;

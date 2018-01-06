@@ -1,6 +1,5 @@
 import { TransportTypes } from './../types';
-
-import BaseMessage, { BaseMessageSchema } from "../base/BaseMessage";
+import { BaseMessage, BaseMessageSchema } from "../base";
 
 export interface FirebaseMessageSchema extends BaseMessageSchema {
   // Firebase Device Token

@@ -2,7 +2,7 @@ import * as FirebaseSDK from 'firebase-admin';
 import { Logger } from 'ts-framework';
 import { BaseMessageSchema } from './../base/BaseMessage';
 import FirebaseMessage, { FirebaseMessageSchema } from './FirebaseMessage';
-import BaseNotificationService, { BaseNotificationServiceOptions } from '../base/BaseNotificationService';
+import { BaseNotificationService, BaseNotificationServiceOptions } from '../base';
 
 export interface FirebaseServiceOptions extends BaseNotificationServiceOptions {
   serviceAccount?: FirebaseSDK.ServiceAccount
@@ -33,7 +33,7 @@ export default class FirebaseService extends BaseNotificationService {
       });
     } else {
       // No transporter available, prepare message for warning or crash
-      const message = 'FirebaseService: The Google Service Account is not available.';
+      const message = `${this.name}: The Google Service Account is not available.`;
 
       if (!options.debug) {
         // No debug mode, crash the service
@@ -55,7 +55,7 @@ export default class FirebaseService extends BaseNotificationService {
       const { registrationToken, ...payload } = data;
       return this.sdk.messaging().sendToDevice(registrationToken, { notification: payload }, options)
     } else {
-      const errorMessage = 'FirebaseService is not ready, the Google Service Account may be invalid or unavailable';
+      const errorMessage = `${this.name} is not ready, the Google Service Account may be invalid or unavailable`;
 
       if (this.options.debug) {
         // Logs the notification body in the console as a warning

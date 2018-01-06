@@ -18,13 +18,19 @@ yarn add git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
 npm install --save git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
 ```
 
-Special thanks to the [Cerberus](https://github.com/TedGoas/Cerberus) team, that developed a great E-mail template, used as the default template.
-Don't forget to checkout their official website: [http://tedgoas.github.io/Cerberus/](http://tedgoas.github.io/Cerberus/)
-
 <center>![Sample email template](./assets/sample-template.png)</center>
 
-
 ## Getting Started
+
+The Notification module comes with built-in support for the following transports:
+
+- **E-mail (SMTP):** Backed by `nodemailer` and `email-templates` modules.
+- **Firebase Cloud Messaging:** Using the official `firebase-admin` module.
+
+### Email transport
+
+Special thanks to the [Cerberus](https://github.com/TedGoas/Cerberus) team, that developed a great e-mail template, used here as the default template.
+Don't forget to checkout their official website: [http://tedgoas.github.io/Cerberus/](http://tedgoas.github.io/Cerberus/)
 
 Sending a simple `html` or `plain text` message:
 
@@ -37,12 +43,14 @@ const email = new Email({
 });
 
 // Send a simple E-mail message
-email.send({
+const response = await email.send({
   to: 'hello@company.com',
   subject: 'Welcome aboard!',
   text: 'Thank you for creating a new account! https://google.com',
   html: 'Thank you for creating a new account! <a href="https://google.com>Click here to login</a>'
-}).then(response => console.info(response))
+});
+
+console.log(response);
 ```
 
 Sending a simple email message using the default template (Cerberus):
@@ -59,7 +67,7 @@ const email = new Email({
 });
 
 // Send an E-mail using the default template (Cerberus)
-email.send({
+const response = await email.send({
   to: 'hello@company.com',
   subject: 'Welcome aboard!',
   locals: {
@@ -72,7 +80,35 @@ email.send({
     },
     footer: 'This is a footer',
   },
-}).then(response => console.info(response))
+});
+
+console.log(response);
+```
+
+### Firebase transport
+
+Sending a simple push notification for Android and iOS:
+
+```typescript
+import { Firebase } from 'ts-framework-notification';
+
+const firebase = new Firebase({
+  serviceAccount: require('../service_account.json'), // The service account from Firebase console
+  databaseURL: 'https://<APP_NAME>.firebase.io'
+});
+
+// Send a simple notification
+const response = await firebase.send({
+  registrationToken: '< THE REGISTRATION TOKEN FOR THE SPECIFIC DEVICE OR ARRAY OF TOKENS >',
+  title: 'Hello World!',
+  body: 'This is a simple notification message.',
+  sound: '< the sound name >',
+  sound: '< the sound name >', // iOS only
+  color: '< the color hex >', // Android only
+  // More options in the TS typings...
+});
+
+console.log(response);
 ```
 
 ## Documentation
@@ -81,7 +117,11 @@ See the [Full documentation](./docs/index.md) in the repository.
 
 ## Roadmap
 
-- Push notifications (Firebase for iOS and Android)
+- Push notifications (Firebase for iOS, Android and Web)
+  - [OK] Firebase simple notifications for iOS and Android
+  - Firebase Data notifications for iOS and Android
+  - Firebase Web notifications
+  - APNS native integration
 - SMS notifications (Twilio)
 
 ## License

@@ -6,7 +6,7 @@ export interface BaseMessageSchema {
 }
 
 export default abstract class BaseMessage {
-  _id: string;
+  _id?: string;
   _type: string;
 
   constructor(data: any) {

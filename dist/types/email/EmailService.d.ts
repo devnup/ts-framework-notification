@@ -1,18 +1,8 @@
 /// <reference types="email-templates" />
 import * as nodemailer from 'nodemailer';
 import * as Template from 'email-templates';
-import BaseNotificationService, { BaseNotificationServiceOptions } from '../base/BaseNotificationService';
-export interface EmailMessage {
-    from?: string;
-    to: string | string[];
-    subject: string;
-    text?: string;
-    html?: string;
-    cc?: string | string[];
-    bcc?: string | string[];
-    locals?: any;
-    template?: string;
-}
+import { BaseNotificationService, BaseNotificationServiceOptions } from '../base';
+import { EmailMessageSchema } from './EmailMessage';
 export interface EmailServiceOptions extends BaseNotificationServiceOptions {
     /**
      * The default sender for the emails sent by the service.
@@ -57,7 +47,7 @@ export default class EmailService extends BaseNotificationService {
     /**
      * Sends an email message.
      *
-     * @param options The message options
+     * @param message The message options
      */
-    send(options: EmailMessage): Promise<any>;
+    send(message: EmailMessageSchema): Promise<any>;
 }

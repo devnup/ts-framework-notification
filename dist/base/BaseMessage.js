@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const uuid = require("uuid");
+class BaseMessage {
+    constructor(data) {
+        this._id = data._id || data.id || uuid.v4();
+        this._type = data._type || data.type;
+    }
+}
+exports.default = BaseMessage;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQmFzZU1lc3NhZ2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9saWIvYmFzZS9CYXNlTWVzc2FnZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZCQUE2QjtBQU83QjtJQUlFLFlBQVksSUFBUztRQUNuQixJQUFJLENBQUMsR0FBRyxHQUFHLElBQUksQ0FBQyxHQUFHLElBQUksSUFBSSxDQUFDLEVBQUUsSUFBSSxJQUFJLENBQUMsRUFBRSxFQUFFLENBQUM7UUFDNUMsSUFBSSxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUMsS0FBSyxJQUFJLElBQUksQ0FBQyxJQUFJLENBQUM7SUFDdkMsQ0FBQztDQUNGO0FBUkQsOEJBUUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyB1dWlkIGZyb20gJ3V1aWQnO1xuXG5leHBvcnQgaW50ZXJmYWNlIEJhc2VNZXNzYWdlU2NoZW1hIHtcbiAgX2lkPzogc3RyaW5nO1xuICBfdHlwZT86IHN0cmluZztcbn1cblxuZXhwb3J0IGRlZmF1bHQgYWJzdHJhY3QgY2xhc3MgQmFzZU1lc3NhZ2Uge1xuICBfaWQ6IHN0cmluZztcbiAgX3R5cGU6IHN0cmluZztcblxuICBjb25zdHJ1Y3RvcihkYXRhOiBhbnkpIHtcbiAgICB0aGlzLl9pZCA9IGRhdGEuX2lkIHx8IGRhdGEuaWQgfHwgdXVpZC52NCgpO1xuICAgIHRoaXMuX3R5cGUgPSBkYXRhLl90eXBlIHx8IGRhdGEudHlwZTtcbiAgfVxufSJdfQ==

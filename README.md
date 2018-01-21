@@ -47,7 +47,8 @@ await notification.send(message);
 ```
 
 For more examples, check the full specification below.
-<br />
+
+<p><br /></p>
 
 ## Getting Started
 
@@ -167,6 +168,8 @@ See the [Full documentation](./docs/index.md) in the repository.
   - Firebase Web notifications
   - APNS native integration
 - SMS notifications (Twilio)
+
+<p><br /></p>
 
 ## License
 

@@ -11,7 +11,7 @@ export interface EmailMessageSchema extends BaseMessageSchema {
     template?: string;
 }
 export default class EmailMessage extends BaseMessage implements EmailMessageSchema {
-    _id: string;
+    _id?: string;
     _type: string;
     from?: string;
     to: string | string[];

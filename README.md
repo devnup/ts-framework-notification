@@ -147,6 +147,12 @@ console.log(response);
 
 See the [Full documentation](./docs/index.md) in the repository.
 
+## Changelog
+
+- **v1.2.0**: Notification service layer
+- **v1.1.0**: Firebase push notifications
+- **v1.0.0**: Email templates notifications
+
 ## Roadmap
 
 - Push notifications (Firebase for iOS, Android and Web)

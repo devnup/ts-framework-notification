@@ -7,7 +7,7 @@ export interface EmailServiceOptions extends BaseNotificationServiceOptions {
     /**
      * The default sender for the emails sent by the service.
      */
-    from: string;
+    from?: string;
     /**
      * E-mails will be sent to console whenever the connectionUrl is not available if debug is "true".
      */
@@ -39,7 +39,7 @@ export default class EmailService extends BaseNotificationService {
      *
      * @param options The email service options
      */
-    constructor(options: EmailServiceOptions);
+    constructor(options?: EmailServiceOptions);
     /**
      * Verifies if the SMTP connection is OK.
      */

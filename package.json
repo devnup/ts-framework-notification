@@ -1,6 +1,6 @@
 {
   "name": "ts-framework-notification",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A minimalistic web framework for TS",
   "author": "Luis Brito <luis@devnup.com>",
   "license": "MIT",

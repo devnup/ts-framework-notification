@@ -35,15 +35,28 @@ const notification = new Notification({
 })
 
 /* Prepare a sample Email message */
-const message = new Notification.EmailMessage({
+const email = new Notification.EmailMessage({
   to: 'hello@company.com',
   subject: 'Welcome aboard!',
   text: 'Thank you for creating a new account! https://google.com',
   html: 'Thank you for creating a new account! <a href="https://google.com>Click here to login</a>'
 });
 
-/* Send async email message */
-await notification.send(message);
+
+/* Prepare a sample push notification for Firebase transport */
+const push = new Notification.FirebaseMessage({
+  registrationToken: '< THE REGISTRATION TOKEN FOR THE SPECIFIC DEVICE OR ARRAY OF TOKENS >',
+  title: 'Hello World!',
+  body: 'This is a simple notification message.',
+  sound: '< the sound name >',
+  color: '< the color hex >', // Android only
+  badge: '< the count for the badge >', // iOS only
+  // More options in the TS typings...
+})
+
+/* Send async messages */
+await notification.send(email);
+await notification.send(push);
 ```
 
 For more examples, check the full specification below.
@@ -161,6 +174,7 @@ See the [Full documentation](./docs/index.md) in the repository.
 <p><br /></p>
 
 ## Roadmap
+- Bulk sending of messages in `Notifification#send()`
 - Documentation for usage without Typescript (NodeJS 8+)
 - Push notifications (Firebase for iOS, Android and Web)
   - [OK] Firebase simple notifications for iOS and Android

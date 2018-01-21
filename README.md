@@ -143,9 +143,13 @@ const response = await firebase.send({
 console.log(response);
 ```
 
+<p><br /></p>
+
 ## Documentation
 
 See the [Full documentation](./docs/index.md) in the repository.
+
+<p><br /></p>
 
 ## Changelog
 
@@ -153,8 +157,10 @@ See the [Full documentation](./docs/index.md) in the repository.
 - **v1.1.0**: Firebase push notifications
 - **v1.0.0**: Email templates notifications
 
-## Roadmap
+<p><br /></p>
 
+## Roadmap
+- Documentation for usage without Typescript (NodeJS 8+)
 - Push notifications (Firebase for iOS, Android and Web)
   - [OK] Firebase simple notifications for iOS and Android
   - Firebase Data notifications for iOS and Android

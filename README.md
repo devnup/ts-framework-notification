@@ -17,6 +17,38 @@ yarn add git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
 npm install --save git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
 ```
 
+Minimal usage: 
+```typescript
+import { Notification } from 'ts-framework-notification'
+
+const notification = new Notification({
+  /* Enables the email transport */
+  email: {
+    from: process.env.SMTP_FROM,
+    connectionUrl: process.env.SMTP_URL
+  },
+  /* Enables the Firebase transport (optional) */
+  firebase: {
+    serviceAccount: require('../service_account.json'), // The service account from Firebase console
+    databaseURL: 'https://<APP_NAME>.firebase.io'
+  }
+})
+
+/* Prepare a sample Email message */
+const message = new Notification.EmailMessage({
+  to: 'hello@company.com',
+  subject: 'Welcome aboard!',
+  text: 'Thank you for creating a new account! https://google.com',
+  html: 'Thank you for creating a new account! <a href="https://google.com>Click here to login</a>'
+});
+
+/* Send async email message */
+await notification.send(message);
+```
+
+For more examples, check the full specification below.
+<br />
+
 ## Getting Started
 
 The Notification module comes with built-in support for the following transports:

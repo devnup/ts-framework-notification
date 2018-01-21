@@ -1,6 +1,6 @@
 {
   "name": "ts-framework-notification",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A minimalistic web framework for TS",
   "author": "Luis Brito <luis@devnup.com>",
   "license": "MIT",
@@ -26,15 +26,18 @@
     "cpx": "^1.5.0",
     "ejs": "^2.5.7",
     "email-templates": "^3.1.7",
+    "firebase-admin": "^5.7.0",
     "nodemailer": "^4.4.0",
     "rimraf": "^2.6.2",
     "ts-framework": "git+https://gitlab.devnup.com/npm/ts-framework.git#dev"
   },
   "devDependencies": {
     "@types/jest": "^21.1.2",
+    "hat": "^0.0.3",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "nodemon": "^1.12.1",
+    "sinon": "^4.1.3",
     "ts-jest": "^21.2.3",
     "ts-lint": "^4.5.1",
     "ts-node": "^3.3.0",

@@ -61,22 +61,46 @@ export default class FirebaseMessage extends BaseMessage implements FirebaseMess
     this.registrationToken = data.registrationToken;
 
     // Multi-platform attributes
-    this.sound = data.sound;
-    this.title = data.title;
-    this.titleLocArgs = data.titleLocArgs;
-    this.titleLocKey = data.titleLocKey;
-    this.body = data.body;
-    this.bodyLocArgs = data.bodyLocArgs;
-    this.bodyLocKey = data.bodyLocKey;
-    this.clickAction = data.clickAction;
+    if (data.sound) {
+      this.sound = data.sound;
+    }
+    if (data.title) {
+      this.title = data.title;
+    }
+    if (data.titleLocArgs) {
+      this.titleLocArgs = data.titleLocArgs;
+    }
+    if (data.titleLocKey) {
+      this.titleLocKey = data.titleLocKey;
+    }
+    if (data.body) {
+      this.body = data.body;
+    }
+    if (data.bodyLocArgs) {
+      this.bodyLocArgs = data.bodyLocArgs;
+    }
+    if (data.bodyLocKey) {
+      this.bodyLocKey = data.bodyLocKey;
+    }
+    if (data.clickAction) {
+      this.clickAction = data.clickAction;
+    }
 
     // Android specific attributes
-    this.tag = data.tag;
-    this.color = data.color;
-    this.icon = data.icon;
+    if (data.tag) {
+      this.tag = data.tag;
+    }
+    if (data.color) {
+      this.color = data.color;
+    }
+    if (data.icon) {
+      this.icon = data.icon;
+    }
 
     // iOS specific attributes
-    this.badge = data.badge;
+    if (data.badge) {
+      this.badge = data.badge;
+    }
 
     // Put additional values in payload
     for (let k in data) {

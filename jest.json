@@ -19,7 +19,6 @@
   ],
   "testPathIgnorePatterns": [
     "./tests/util/*",
-    "./build",
     "./tests/__mock__"
   ]
 }

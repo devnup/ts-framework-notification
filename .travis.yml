@@ -1,0 +1,17 @@
+sudo: false
+language: node_js
+branches:
+  only:
+    - master
+cache:
+  yarn: true
+  directories:
+    - node_modules
+node_js:
+  - 8
+services:
+  - mongodb
+script:
+  - yarn run test
+after_success:
+  - yarn run coveralls

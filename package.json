@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@types/jest": "^21.1.2",
+    "coveralls": "^3.0.0",
     "hat": "^0.0.3",
     "husky": "^0.14.3",
     "jest": "^21.2.1",

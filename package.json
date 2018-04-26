@@ -18,6 +18,7 @@
     "clean": "./node_modules/.bin/rimraf ./dist/",
     "assets": "./node_modules/.bin/cpx \"lib/**/*.{html,ejs,css,png,jpg,jpeg}\" dist",
     "test": "./node_modules/.bin/jest --config jest.json",
+    "coveralls": "((cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js) || true)",
     "precommit": "npm test"
   },
   "dependencies": {
@@ -29,7 +30,7 @@
     "firebase-admin": "^5.7.0",
     "nodemailer": "^4.4.0",
     "rimraf": "^2.6.2",
-    "ts-framework": "git+https://gitlab.devnup.com/npm/ts-framework.git#dev"
+    "ts-framework": "git+http://github.com/devnup/ts-framework.git#1.0.0-rc.1"
   },
   "devDependencies": {
     "@types/jest": "^21.1.2",

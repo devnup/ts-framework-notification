@@ -1,0 +1,3 @@
+var typedoc = typedoc || {};
+            typedoc.search = typedoc.search || {};
+            typedoc.search.data = {"kinds":{"65536":"Type literal"},"rows":[{"id":0,"kind":65536,"name":"__type","url":"interfaces/emailserviceoptions.html#template.__type","classes":"tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported","parent":"EmailServiceOptions.template"},{"id":1,"kind":65536,"name":"__type","url":"classes/notification.html#transports.__type","classes":"tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported","parent":"Notification.transports"}]};

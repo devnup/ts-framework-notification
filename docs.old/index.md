@@ -4,10 +4,10 @@ Install using Yarn or NPM.
 
 ```bash
 # Install using yarn
-yarn add git:https://gitlab.devnup.com/npm/ts-framework-notification.git#master
+yarn add git+https://github.com/devnup/ts-framework-notification.git#master
 
 # Install using NPM
-npm install --save git:https://gitlab.devnup.com/npm/ts-framework-notification.git#master
+npm install --save git+https://github.com/devnup/ts-framework-notification.git#master
 ```
 
 ## Sending simple E-mails
@@ -34,8 +34,3 @@ email.send({
 ## Sending with the Template Engine
 
 See the [Templates documentation](./template.md).
-
-
-## API Docs
-
-// TODO

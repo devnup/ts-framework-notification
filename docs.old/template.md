@@ -65,7 +65,3 @@ The currently available locals for this template are:
 - `unsubscribe`: Optional.
   - `label`: Override the unsubscribe label, defaults to: "Unsubscribe".
   - `url`: The destination url for the Unsubscribe link.
-
-## Sending with a Custom Template
-
-// TODO

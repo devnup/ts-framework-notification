@@ -19,6 +19,7 @@
     "assets": "./node_modules/.bin/cpx \"lib/**/*.{html,ejs,css,png,jpg,jpeg}\" dist",
     "test": "./node_modules/.bin/jest --config jest.json",
     "coveralls": "((cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js) || true)",
+    "docs": "./scripts/docs.sh",
     "precommit": "npm test"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@types/jest": "^21.1.2",
     "coveralls": "^3.0.0",
+    "devnup-typedoc-theme": "git+https://gitlab.devnup.com/npm/devnup-typedoc-theme.git#master",
     "hat": "^0.0.3",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
@@ -43,6 +45,7 @@
     "ts-jest": "^21.2.3",
     "ts-lint": "^4.5.1",
     "ts-node": "^3.3.0",
+    "typedoc": "^0.11.1",
     "typescript": "^2.5.3"
   }
 }

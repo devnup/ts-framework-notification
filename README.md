@@ -11,10 +11,10 @@ This plugin extends the Server for handling transactional notifications through 
 
 ```bash
 # Install using yarn
-yarn add git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
+yarn add git+https://github.com/devnup/ts-framework-notification.git#master
 
 # Install using NPM
-npm install --save git+https://gitlab.devnup.com/npm/ts-framework-notification.git#master
+npm install --save git+https://github.com/devnup/ts-framework-notification.git#master
 ```
 
 Minimal usage: 
@@ -127,8 +127,6 @@ console.log(response);
 
 Special thanks to the [Cerberus](http://tedgoas.github.io/Cerberus) team, that developed a great e-mail template, used here as the default template.
 
-<center>![Sample email template](./assets/sample-template.png)</center>
-
 <p><br /></p>
 
 ### Firebase transport
@@ -174,14 +172,12 @@ See the [Full documentation](./docs/index.md) in the repository.
 <p><br /></p>
 
 ## Roadmap
-- Bulk sending of messages in `Notifification#send()`
 - Documentation for usage without Typescript (NodeJS 8+)
 - Push notifications (Firebase for iOS, Android and Web)
   - [OK] Firebase simple notifications for iOS and Android
   - Firebase Data notifications for iOS and Android
   - Firebase Web notifications
-  - APNS native integration
-- SMS notifications (Twilio)
+- SMS notifications
 
 <p><br /></p>
 

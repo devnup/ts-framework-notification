@@ -158,7 +158,7 @@ console.log(response);
 
 ## Documentation
 
-See the [Full documentation](./docs/index.md) in the repository.
+See the [Full documentation](https://devnup.github.io/ts-framework-notification) in Gihtub.
 
 <p><br /></p>
 

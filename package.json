@@ -25,6 +25,7 @@
   "dependencies": {
     "@types/email-templates": "^3.1.0",
     "@types/nodemailer": "^4.3.1",
+    "@types/twilio": "^0.0.9",
     "cpx": "^1.5.0",
     "ejs": "^2.5.7",
     "email-templates": "^3.1.7",
@@ -47,5 +48,8 @@
     "ts-node": "^3.3.0",
     "typedoc": "^0.11.1",
     "typescript": "^2.5.3"
+  },
+  "optionalDependencies": {
+    "twilio": "^3.17.3"
   }
 }

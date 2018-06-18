@@ -1,11 +1,11 @@
 import { Email, EmailServiceOptions, EmailMessage } from './email';
-import { Firebase, FirebaseMessage, FirebaseServiceOptions } from './firebase';
-
-export { Email, EmailMessage, EmailServiceOptions };
-export { Firebase, FirebaseMessage, FirebaseServiceOptions };
-
 import { default as Notification, NotificationOptions } from './Notification';
+import { Firebase, FirebaseMessage, FirebaseServiceOptions } from './firebase';
+import { Text, TextServiceOptions, TextMessage, TextMessageSchema, TextGateway } from './text';
 
 export { Notification, NotificationOptions };
+export { Email, EmailMessage, EmailServiceOptions };
+export { Firebase, FirebaseMessage, FirebaseServiceOptions };
+export { Text, TextMessage, TextMessageSchema, TextServiceOptions, TextGateway };
 
-export default { Notification, Email, Firebase };
+export default Notification;

@@ -16,7 +16,15 @@ export default class TextService extends BaseNotificationService {
 
   constructor(options: TextServiceOptions) {
     super('TextService', options);
-    this.initGateway().catch(exception => Logger.error(exception));
+
+    if (!this.options.gateway) {
+      throw new Error('No gateway supplied for the Text messages service');
+    }
+
+    this.initGateway().catch(exception => {
+      Logger.error(exception)
+      this.gatewayInstance = undefined;
+    });
   }
 
   /**
@@ -29,7 +37,22 @@ export default class TextService extends BaseNotificationService {
         from: this.options.from,
         ...this.options.gatewayOptions,
       });
+    } else if (this.options.gateway === TextGateway.DEBUG) {
+      // Handles a debug gateway (console)
+      this.gatewayInstance = {
+        isReady: true,
+        async send() {
+          Logger.warn('TextService: Sending SMS as warning logs in debug mode', JSON.stringify(arguments, null, 2));
+        }
+      }
     }
+  }
+
+  /**
+   * Checks if the service is ready for sending text messages.
+   */
+  public async isReady(): Promise<boolean> {
+    return !!(this.gatewayInstance && this.gatewayInstance.isReady);
   }
 
   /**

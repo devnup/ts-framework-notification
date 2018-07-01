@@ -1,12 +1,9 @@
 import { Email, EmailServiceOptions, EmailMessage } from './email';
+import { default as Notification, NotificationOptions } from './Notification';
 import { Firebase, FirebaseMessage, FirebaseServiceOptions } from './firebase';
+import { Text, TextServiceOptions, TextMessage, TextMessageSchema, TextGateway } from './text';
+export { Notification, NotificationOptions };
 export { Email, EmailMessage, EmailServiceOptions };
 export { Firebase, FirebaseMessage, FirebaseServiceOptions };
-import { default as Notification, NotificationOptions } from './Notification';
-export { Notification, NotificationOptions };
-declare const _default: {
-    Notification: typeof Notification;
-    Email: typeof Email;
-    Firebase: typeof Firebase;
-};
-export default _default;
+export { Text, TextMessage, TextMessageSchema, TextServiceOptions, TextGateway };
+export default Notification;

@@ -18,7 +18,7 @@ describe('lib.services.Email', () => {
     expect(await email.isReady()).toBe(false);
   });
 
-  it('should not crash without a valid configuration but in debug mode', async () => {
+  it('should not crash sending with a valid configuration but in debug mode', async () => {
     const email = new Email({ from: 'test@company.com', debug: true });
     expect(await email.isReady()).toBe(false);
 

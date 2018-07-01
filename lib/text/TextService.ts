@@ -41,8 +41,8 @@ export default class TextService extends BaseNotificationService {
       // Handles a debug gateway (console)
       this.gatewayInstance = {
         isReady: true,
-        async send() {
-          Logger.warn('TextService: Sending SMS as warning logs in debug mode', JSON.stringify(arguments, null, 2));
+        async send(msg) {
+          Logger.warn('TextService: Sending SMS as a warning in debug mode', JSON.stringify(msg, null, 2));
         }
       }
     }

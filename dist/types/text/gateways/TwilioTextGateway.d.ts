@@ -8,6 +8,7 @@ export interface TwilioGatewayOptions {
 export default class TwilioTextGateway implements BaseTextGateway {
     protected options: TwilioGatewayOptions;
     client: any;
+    isReady: boolean;
     constructor(options: TwilioGatewayOptions);
     protected init(): Promise<void>;
     send(message: TextMessageSchema): any;

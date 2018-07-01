@@ -5,5 +5,6 @@ export declare enum TextGateway {
     DEBUG = "debug",
 }
 export interface BaseTextGateway {
+    isReady: boolean;
     send(text: TextMessageSchema): Promise<any>;
 }
